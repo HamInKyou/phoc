@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.phoc.R;
 
+//<<<<<<< HEAD:app/src/main/java/com/example/phoc/listView/FeedItemAdapter.java
 import java.util.ArrayList;
 import android.content.Context;
 
@@ -23,6 +24,21 @@ public class FeedItemAdapter extends RecyclerView.Adapter<FeedItemAdapter.ViewHo
     public FeedItemAdapter(Context context){
         this.context = context;
     }
+//=======
+//public class MyfeedItemAdapter extends RecyclerView.Adapter<MyfeedItemAdapter.ViewHolder>{
+//    ArrayList<MyfeedItem> items = new ArrayList<MyfeedItem>();
+//
+//    public interface OnItemClickListener{
+//        public  void onItemClick(View view, int position, int type);
+//    }
+//
+//    private OnItemClickListener onItemClickListener;
+//
+//    public MyfeedItemAdapter(OnItemClickListener onItemClickListener){
+//        this.onItemClickListener = onItemClickListener;
+//    }
+//
+//>>>>>>> dev:app/src/main/java/com/example/phoc/MyfeedItemAdapter.java
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
@@ -33,8 +49,21 @@ public class FeedItemAdapter extends RecyclerView.Adapter<FeedItemAdapter.ViewHo
     }
 
     @Override
+//<<<<<<< HEAD:app/src/main/java/com/example/phoc/listView/FeedItemAdapter.java
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
         FeedItem item = items.get(position);
+//=======
+//    public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int position) {
+//        MyfeedItemAdapter.ViewHolder holder = (MyfeedItemAdapter.ViewHolder)viewHolder;
+//        holder.title.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                //viewType1은 TextView인 title
+//                onItemClickListener.onItemClick(v, position, 1);
+//            }
+//        });
+//        MyfeedItem item = items.get(position);
+//>>>>>>> dev:app/src/main/java/com/example/phoc/MyfeedItemAdapter.java
         viewHolder.setItem(item);
     }
 

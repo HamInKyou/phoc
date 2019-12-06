@@ -27,12 +27,27 @@ public class Myfeed extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.myfeed, container, false);
+//<<<<<<< HEAD
 
         recyclerView = rootView.findViewById(R.id.myFeedRecyclerView);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), RecyclerView.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
         final FeedItemAdapter adapter = new FeedItemAdapter(getContext());
+//=======
+//        RecyclerView recyclerView = rootView.findViewById(R.id.myFeedRecyclerView);
+//
+//        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), RecyclerView.VERTICAL, false);
+//        recyclerView.setLayoutManager(layoutManager);
+//        final MyfeedItemAdapter adapter = new MyfeedItemAdapter(new MyfeedItemAdapter.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(View view, int position, int viewType) {
+//                if(viewType == 1) { //viewType1은 TextView인 title
+//                    ((main) getActivity()).onFragmentSelected(6, null);
+//                }
+//            }
+//        });
+//>>>>>>> dev
 
         DatabaseQueryClass.Post.getPostsByUserId(MySession.getSession().getUserId(), new DataListener() {
             @Override
