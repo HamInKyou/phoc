@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -21,6 +22,7 @@ import com.google.gson.JsonParser;
 
 public class TitleList extends Fragment{
     RecyclerView recyclerView;
+    String titleName;
 
     @Nullable
     @Override
@@ -35,6 +37,10 @@ public class TitleList extends Fragment{
         DatabaseQueryClass.Theme.getThemes(new DataListener() {
             @Override
             public void getData(Object data, String id) {
+                JsonElement ele = new JsonParser().parse(data.toString());
+                JsonObject obj = ele.getAsJsonObject();
+                Log.d("Theme", obj.toString());
+                titleName = obj.get("name").getAsString();
 
                 adapter.addItem(new TitleListItem(data.toString()));
                 setAdapterToView(adapter);
@@ -47,9 +53,9 @@ public class TitleList extends Fragment{
                 Bundle bundle = new Bundle();
                 bundle.putString("theme", adapter.getItem(position).getTitle());
                 ((main) getActivity()).onFragmentSelected(6, bundle);
-
             }
         });
+
         return rootView;
     }
     private void setAdapterToView(final TitleListItemAdapter adapter){
